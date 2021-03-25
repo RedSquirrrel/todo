@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+:root {
+  /* Primary colors */
+  --Bright-Blue: hsl(220, 98%, 61%);
+  --top-background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+
+  /* Light Theme */
+  --Very-Light-Gray: hsl(0, 0%, 98%);
+  --Very-Light-Grayish-Blue: hsl(236, 33%, 92%);
+  --Light-Grayish-Blue: hsl(233, 11%, 84%);
+  --Dark-Grayish-Blue: hsl(236, 9%, 61%);
+  --Very-Dark-Grayish-Blue: hsl(235, 19%, 35%);
+
+  --background: hsl(236, 33%, 92%);
+  --text-color: ;
+}
+
+[data-theme='dark'] {
+  /* Dark Theme */
+  --Very-Dark-Blue: hsl(235, 21%, 11%);
+  --Very-Dark-Desaturated-Blue: hsl(235, 24%, 19%);
+  --Light-Grayish-Blue: hsl(234, 39%, 85%);
+  --Light-Grayish-Blue-hover: hsl(236, 33%, 92%);
+  --Dark-Grayish-Blue: hsl(234, 11%, 52%);
+  --Very-Dark-Grayish-Blue: hsl(233, 14%, 35%);
+  --Very-Dark-Grayish-Blue: hsl(237, 14%, 26%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: initial;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  background: var(--background);
+  font-size: 1.8rem;
+  min-height: 100vh;
+  margin: 0;
+}
+
+header {
+  min-height: 20vh;
+}
+
+main {
+  max-width: 500px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.container {
+  position: relative;
+  bottom: 15rem;
+  margin: 0 auto;
+  min-width: 100%;
+  width: 100%;
+  padding: 2rem;
+  background: var(--Very-Light-Gray);
+  border-radius: 8px;
+}
+
+.content h2 {
+  position: relative;
+  bottom: 20rem;
+  font-size: 5rem;
+  text-align: left;
+  color: var(--Very-Light-Gray);
+}
+
+.addTodo input {
+  position: relative;
+  bottom: 20rem;
+  padding: 1.5rem;
+  width: 100%;
+  border-radius: 8px;
+
+  color: var(--Very-Light-Gray);
+}
+
+.card {
+  position: relative;
+}
