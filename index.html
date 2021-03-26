@@ -6,82 +6,117 @@
     <!-- displays site properly based on user's device -->
 
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"
+    />
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/style.css" />
 
     <title>Frontend Mentor | Todo app</title>
-
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-    <style>
-      .attribution {
-        font-size: 11px;
-        text-align: center;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      }
-    </style>
   </head>
   <body>
-    <header>
-      <img src="./images/bg-desktop-light.jpg" alt="" />
-    </header>
-    
+    <div class="header">
+      <!-- <img src="./images/bg-desktop-light.jpg" alt="" /> -->
+    </div>
+
     <main>
       <div class="content">
-        <h2>Todo</h2>
+        <h2>TODO</h2>
+
+        <!--Dark Mode Swich -->
+        <div class="theme-switch-wrapper">
+          <!-- <span id="toggle-icon"></span> -->
+          <label class="theme-switch">
+            <input type="checkbox" />
+            <i class="fas fa-moon"></i>
+            <!-- <div class="slider round"></div> -->
+          </label>
+        </div>
       </div>
-      
-      <div class="addTodo">
-        <!-- <input type="text" /> -->
-        <input type="text" id="create" placeholder="Create a new todo">
-      </div>
-      
+
+      <form class="addTodo">
+        <button class="btn addNewBtn" aria-label="button">
+          <span class="custom_checkbox"></span>
+        </button>
+        <input
+          class="addNew"
+          type="text"
+          id="create"
+          placeholder="Create a new todo..."
+          aria-label="Create a new todo..."
+        />
+      </form>
+
       <div class="container">
         <div class="card">
-          
-          <div>
-            <input type="checkbox" name="todo" />
-            <label for="todo">Jog around the parc 3x</label><span>X</span>
-          </div>
-          <div>
-            <input type="checkbox" name="todo_1" />
-            <label for="todo_1">10 minutes meditation</label><span>X</span>
-          </div>
-          <div>
-            <input type="checkbox" name="todo_2" />
-            <label for="todo_2">Read for 1 hour</label><span>X</span>
-          </div>
-          <div>
-            <input type="checkbox" name="todo_3" />
-            <label for="todo_3">Pick up groceries</label><span>X</span>
-          </div>
-          <div>
-            <input type="checkbox" name="todo_4" />
-            <label for="todo_4">Complete Todo App on Frontend Mentor</label><span>X</span>
-          </div>
-  
-          <div>
-            <p class="all">All</p>
-            <p class="active">Active</p>
-            <p class="completed">Completed</p>
+          <div class="tasks">
+            <!-- 1 -->
+            <div class="completed task">
+              <input class="task-input" type="checkbox" id="task_1" />
+              <label for="task_1"
+                ><span class="custom_checkbox"></span> Jog around the parc 3x</label
+              ><span class="deleteBtn"><i class="fas fa-times"></i></span>
+            </div>
 
+            <!-- 2 -->
+            <div class="task">
+              <input class="task-input" type="checkbox" id="task_2" />
+              <label for="task_2"><span class="custom_checkbox"></span> 10 minutes meditation</label
+              ><span class="deleteBtn"><i class="fas fa-times"></i></span>
+            </div>
+
+            <!-- 3 -->
+            <div class="task">
+              <input class="task-input" type="checkbox" id="task_3" />
+              <label for="task_3"><span class="custom_checkbox"></span>Read for 1 hour</label
+              ><span class="deleteBtn"><i class="fas fa-times"></i></span>
+            </div>
+
+            <!-- 4 -->
+            <div class="task">
+              <input class="task-input" type="checkbox" id="task_4" />
+              <label for="task_4"><span class="custom_checkbox"></span>Pick up groceries</label
+              ><span class="deleteBtn"><i class="fas fa-times"></i></span>
+            </div>
+
+            <!-- 5 -->
+            <div class="task">
+              <input class="task-input" type="checkbox" id="task_5" />
+              <label for="task_5"
+                ><span class="custom_checkbox"></span>Complete Todo App on Frontend Mentor</label
+              ><span class="deleteBtn"><i class="fas fa-times"></i></span>
+            </div>
+            <div class="task items_left">
+              <!-- Add dynamic number -->
+              <p>5 items left</p>
+              <button class="btn clear">Clear Completed</button>
+            </div>
           </div>
-          <div>
-            <!-- Add dynamic number -->
+        </div>
+
+        <div class="bottom">
+          <!-- Add dynamic number -->
+          <!-- <div class="items_left">
             <p>5 items left</p>
-            <p class="clear">Clear Completed</p>
+            <button class="btn clear">Clear Completed</button>
+          </div> -->
+          <div class="buttons">
+            <button class="btn all active">All</button>
+            <button class="btn activeBtn">Active</button>
+            <button class="btn completed">Completed</button>
           </div>
         </div>
       </div>
     </main>
 
-      <p>Drag and drop to reorder list</p>
-    </div>
-    <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-      Coded by <a href="#">Your Name Here</a>.
-    </div>
+    <footer class="attribution">
+      <p class="drag_text">Drag and drop to reorder list</p>
+      <p>
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+        Coded by <a href="https://github.com/RedSquirrrel/todo" target="_blank">@RedSquirrrel</a>.
+      </p>
+    </footer>
   </body>
 </html>

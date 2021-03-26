@@ -3,17 +3,20 @@
 :root {
   /* Primary colors */
   --Bright-Blue: hsl(220, 98%, 61%);
-  --top-background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+  --Check-Background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 
   /* Light Theme */
   --Very-Light-Gray: hsl(0, 0%, 98%);
   --Very-Light-Grayish-Blue: hsl(236, 33%, 92%);
+
   --Light-Grayish-Blue: hsl(233, 11%, 84%);
   --Dark-Grayish-Blue: hsl(236, 9%, 61%);
+
   --Very-Dark-Grayish-Blue: hsl(235, 19%, 35%);
 
   --background: hsl(236, 33%, 92%);
   --text-color: ;
+  --background-image: url('../images/bg-desktop-light.jpg');
 }
 
 [data-theme='dark'] {
@@ -24,7 +27,8 @@
   --Light-Grayish-Blue-hover: hsl(236, 33%, 92%);
   --Dark-Grayish-Blue: hsl(234, 11%, 52%);
   --Very-Dark-Grayish-Blue: hsl(233, 14%, 35%);
-  --Very-Dark-Grayish-Blue: hsl(237, 14%, 26%);
+  --Very-Darker-Grayish-Blue: hsl(237, 14%, 26%);
+  --background-image: url('../images/bg-desktop-dark.jpg');
 }
 
 *,
@@ -40,51 +44,326 @@ html {
 
 body {
   font-family: 'Josefin Sans', sans-serif;
+  color: var(--Very-Dark-Grayish-Blue);
   background: var(--background);
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   min-height: 100vh;
   margin: 0;
 }
 
-header {
-  min-height: 20vh;
+.header {
+  min-height: 30vh;
+  background: var(--background-image) no-repeat center/cover;
 }
 
 main {
   max-width: 500px;
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
+  display: grid;
+  grid-template-rows: 1fr 1fr auto 1fr;
+  column-gap: 1rem;
+  position: relative;
+  bottom: 17rem;
+  padding: 1rem;
 }
 
-.container {
-  position: relative;
-  bottom: 15rem;
-  margin: 0 auto;
-  min-width: 100%;
-  width: 100%;
-  padding: 2rem;
-  background: var(--Very-Light-Gray);
-  border-radius: 8px;
+.content {
+  height: 5.5rem;
+  display: grid;
+  align-content: center;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  color: var(--Very-Light-Gray);
+  font-size: 2.6rem;
 }
 
 .content h2 {
-  position: relative;
-  bottom: 20rem;
-  font-size: 5rem;
+  /* position: relative;
+  bottom: 14rem; */
+  font-weight: 700;
+  letter-spacing: 10px;
   text-align: left;
-  color: var(--Very-Light-Gray);
+  margin-bottom: 3rem;
+}
+
+/* .theme-switch-wrapper {
+  display: flex;
+} */
+
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+  cursor: pointer;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+/* input:checked + .fas {
+} */
+
+/* input:checked + .slider::before {
+  transform: translateX(26px);
+} */
+
+.addTodo {
+  min-width: 100%;
+  width: 100%;
+  display: flex;
+  background: var(--Very-Light-Gray);
+  border-radius: 5px;
+  /* margin-bottom: 1rem; */
+  margin-bottom: 0.1rem;
 }
 
 .addTodo input {
-  position: relative;
-  bottom: 20rem;
-  padding: 1.5rem;
+  border: none;
   width: 100%;
-  border-radius: 8px;
+  padding: 0.6rem;
+  border-radius: 5px;
+  outline: none;
+}
 
-  color: var(--Very-Light-Gray);
+input:focus::placeholder {
+  opacity: 0.2;
 }
 
 .card {
+  background: var(--Very-Light-Gray);
+  padding: 0.5rem 0.5rem 1rem 0.5rem;
+  max-height: 800px;
+  border-radius: 5px;
+  margin-top: 2rem;
+}
+
+.bottom {
+  display: grid;
+}
+
+.items_left {
+  background: var(--Very-Light-Gray);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: var(--Dark-Grayish-Blue);
+}
+
+.buttons {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: var(--Very-Light-Gray);
+  min-width: 100%;
+  width: 100%;
+  padding: 2rem 0.8rem;
+  margin-top: 2rem;
+}
+
+.buttons button {
+  margin-right: 2rem;
+  font-weight: 700;
+}
+
+/* ========================= Buttons ======================== */
+.btn {
+  cursor: pointer;
+  background: inherit;
+  border: none;
+  padding: 0;
+  font-size: 1.3rem;
+  font-family: inherit;
+  color: var(--Dark-Grayish-Blue);
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.addNewBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 100%;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  background: var(--Very-Light-Gray);
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+/* .addNewBtn span {
+  width: 2rem;
+  height: 2rem;
+} */
+
+.addNewBtn:hover {
+  background: var(--Very-Dark-Blue);
+}
+
+.active {
+  color: var(--Bright-Blue);
+}
+
+/* ============== tasks and custom checkbox */
+.task {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  padding: 1.5rem 0.8rem;
   position: relative;
+}
+
+.task:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin-top: 6rem;
+  background: var(--Light-Grayish-Blue);
+  height: 1px;
+}
+
+.task:hover {
+  opacity: 0.7;
+}
+
+.task:hover:last-child {
+  opacity: unset;
+  cursor: default;
+}
+
+[type='checkbox'] {
+  opacity: 0;
+  position: absolute;
+}
+
+.custom_checkbox {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  border: 1px solid var(--Light-Grayish-Blue);
+  border-radius: 50%;
+  margin-right: 1.2rem;
+  transform: scale(1);
+  transition: transform 300ms ease-in-out;
+}
+
+.task:hover .custom_checkbox,
+[type='checkbox']:focus + label .custom_checkbox {
+  transform: scale(1.2);
+  color: var(--Dark-Grayish-Blue);
+}
+/* background: var(--Check-Background); */
+
+[type='checkbox']:checked + label .custom_checkbox {
+  background: var(--Check-Background);
+  color: var(--Very-Light-Gray);
+  /* test */
+  /* box-shadow: inset 0 0 0px 1px white; */
+}
+
+[type='checkbox']:checked + label .custom_checkbox::before {
+  content: '✔';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  transition: all 0.1s;
+}
+
+.task label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  margin-bottom: 1rem;
+}
+
+.completed label {
+  text-decoration: line-through;
+  color: hsl(0, 1%, 76%);
+}
+
+/* ===== test =========== */
+/* .completed label::after {
+  transform: scaleX(0);
+  transform-origin: right;
+
+}
+
+.completed + label::after {
+  transform: scaleX(1);
+  transform-origin: left;
+} */
+
+.deleteBtn {
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--Light-Grayish-Blue);
+  margin-right: 1rem;
+}
+
+/* ============== Footer ==================== */
+.attribution {
+  position: fixed;
+  bottom: 3rem;
+  font-size: 11px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  color: var(--Dark-Grayish-Blue);
+}
+.drag_text {
+  /* margin-bottom: 10rem; */
+  font-size: 1.5rem;
+}
+.attribution a {
+  color: var(--Bright-Blue);
+  text-decoration: none;
+}
+
+.attribution a:hover {
+  color: hsl(228, 75%, 54%);
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 950px) {
+  body {
+    font-size: 1.8rem;
+  }
+
+  .content {
+    font-size: 3.6rem;
+  }
+
+  .attribution {
+    bottom: 5rem;
+  }
+
+  .drag_text {
+    margin-bottom: 4rem;
+    font-size: 2rem;
+  }
+  [type='checkbox']:checked + label .custom_checkbox::before {
+    top: 3.3px;
+    left: 3.3px;
+    font-size: 1.5rem;
+  }
+
+  .custom_checkbox {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
 }
