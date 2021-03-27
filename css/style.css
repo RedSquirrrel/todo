@@ -196,8 +196,8 @@ input:focus::placeholder {
   margin-left: 0.5rem;
 }
 
-.addNewBtn:hover {
-  background: var(--Very-Dark-Blue);
+.addNewBtn span:hover {
+  border: 1px solid var(--Very-Dark-Blue);
 }
 
 .active {
