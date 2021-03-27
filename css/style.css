@@ -5,30 +5,31 @@
   --Bright-Blue: hsl(220, 98%, 61%);
   --Check-Background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 
-  /* Light Theme */
   --Very-Light-Gray: hsl(0, 0%, 98%);
-  --Very-Light-Grayish-Blue: hsl(236, 33%, 92%);
-
-  --Light-Grayish-Blue: hsl(233, 11%, 84%);
-  --Dark-Grayish-Blue: hsl(236, 9%, 61%);
-
-  --Very-Dark-Grayish-Blue: hsl(235, 19%, 35%);
-
-  --background: hsl(236, 33%, 92%);
-  --text-color: ;
-  --background-image: url('../images/bg-desktop-light.jpg');
-}
-
-[data-theme='dark'] {
-  /* Dark Theme */
   --Very-Dark-Blue: hsl(235, 21%, 11%);
-  --Very-Dark-Desaturated-Blue: hsl(235, 24%, 19%);
   --Light-Grayish-Blue: hsl(234, 39%, 85%);
   --Light-Grayish-Blue-hover: hsl(236, 33%, 92%);
   --Dark-Grayish-Blue: hsl(234, 11%, 52%);
   --Very-Dark-Grayish-Blue: hsl(233, 14%, 35%);
   --Very-Darker-Grayish-Blue: hsl(237, 14%, 26%);
+
+  /* Light Theme */
+  --body-background: hsl(236, 33%, 92%);
+  --background-image: url('../images/bg-desktop-light.jpg');
+  --input-and-card: hsl(0, 0%, 98%);
+  --Light-Grayish-Blue: hsl(233, 11%, 84%);
+  --text-color: hsl(236, 9%, 61%);
+  --ceckbox-border: hsl(0, 0%, 87%);
+  --Grayish-Blue: hsl(236, 33%, 92%);
+}
+
+[data-theme='dark'] {
+  --body-background: hsl(235, 21%, 11%);
   --background-image: url('../images/bg-desktop-dark.jpg');
+  --input-and-card: hsl(235, 24%, 19%);
+  --text-color: hsl(0, 0%, 98%);
+  --ceckbox-border: hsl(0, 0%, 24%);
+  --Grayish-Blue: hsl(235, 19%, 35%);
 }
 
 *,
@@ -45,7 +46,7 @@ html {
 body {
   font-family: 'Josefin Sans', sans-serif;
   color: var(--Very-Dark-Grayish-Blue);
-  background: var(--background);
+  background: var(--body-background);
   font-size: 1.2rem;
   min-height: 100vh;
   margin: 0;
@@ -53,18 +54,19 @@ body {
 
 .header {
   min-height: 30vh;
-  background: var(--background-image) no-repeat center/cover;
+  background: var(--background-image) no-repeat left center/cover;
+  width: 100%;
 }
 
 main {
-  max-width: 500px;
+  max-width: 600px;
   width: 90%;
   margin: 0 auto;
   display: grid;
   grid-template-rows: 1fr 1fr auto 1fr;
   column-gap: 1rem;
   position: relative;
-  bottom: 17rem;
+  bottom: 15rem;
   padding: 1rem;
 }
 
@@ -80,53 +82,48 @@ main {
 }
 
 .content h2 {
-  /* position: relative;
-  bottom: 14rem; */
   font-weight: 700;
   letter-spacing: 10px;
   text-align: left;
   margin-bottom: 3rem;
 }
 
-/* .theme-switch-wrapper {
-  display: flex;
-} */
-
 .theme-switch {
   display: inline-block;
-  height: 34px;
+  height: 3rem;
   position: relative;
-  width: 60px;
+  width: 50px;
   cursor: pointer;
+  /* background: #000; */
+  z-index: 1000;
 }
 
 .theme-switch input {
   display: none;
 }
 
-/* input:checked + .fas {
-} */
-
-/* input:checked + .slider::before {
-  transform: translateX(26px);
-} */
+.toggle-icon {
+  position: absolute;
+}
 
 .addTodo {
   min-width: 100%;
   width: 100%;
   display: flex;
-  background: var(--Very-Light-Gray);
+  background: var(--input-and-card);
   border-radius: 5px;
-  /* margin-bottom: 1rem; */
   margin-bottom: 0.1rem;
 }
 
 .addTodo input {
+  background: var(--input-and-card);
   border: none;
   width: 100%;
   padding: 0.6rem;
   border-radius: 5px;
   outline: none;
+  color: var(--text-color);
+  caret-color: var(--Bright-Blue);
 }
 
 input:focus::placeholder {
@@ -134,7 +131,7 @@ input:focus::placeholder {
 }
 
 .card {
-  background: var(--Very-Light-Gray);
+  background: var(--input-and-card);
   padding: 0.5rem 0.5rem 1rem 0.5rem;
   max-height: 800px;
   border-radius: 5px;
@@ -146,7 +143,7 @@ input:focus::placeholder {
 }
 
 .items_left {
-  background: var(--Very-Light-Gray);
+  background: var(--input-and-card);
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -159,7 +156,7 @@ input:focus::placeholder {
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  background: var(--Very-Light-Gray);
+  background: var(--input-and-card);
   min-width: 100%;
   width: 100%;
   padding: 2rem 0.8rem;
@@ -194,15 +191,10 @@ input:focus::placeholder {
   height: 100%;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
-  background: var(--Very-Light-Gray);
+  background: var(--input-and-card);
   padding: 0.5rem;
   margin-left: 0.5rem;
 }
-
-/* .addNewBtn span {
-  width: 2rem;
-  height: 2rem;
-} */
 
 .addNewBtn:hover {
   background: var(--Very-Dark-Blue);
@@ -252,7 +244,7 @@ input:focus::placeholder {
   width: 2rem;
   height: 2rem;
   cursor: pointer;
-  border: 1px solid var(--Light-Grayish-Blue);
+  border: 1px solid var(--ceckbox-border);
   border-radius: 50%;
   margin-right: 1.2rem;
   transform: scale(1);
@@ -269,8 +261,6 @@ input:focus::placeholder {
 [type='checkbox']:checked + label .custom_checkbox {
   background: var(--Check-Background);
   color: var(--Very-Light-Gray);
-  /* test */
-  /* box-shadow: inset 0 0 0px 1px white; */
 }
 
 [type='checkbox']:checked + label .custom_checkbox::before {
@@ -287,6 +277,11 @@ input:focus::placeholder {
   justify-content: center;
   align-content: center;
   margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.task {
+  color: var(--text-color);
 }
 
 .completed label {
@@ -294,22 +289,10 @@ input:focus::placeholder {
   color: hsl(0, 1%, 76%);
 }
 
-/* ===== test =========== */
-/* .completed label::after {
-  transform: scaleX(0);
-  transform-origin: right;
-
-}
-
-.completed + label::after {
-  transform: scaleX(1);
-  transform-origin: left;
-} */
-
 .deleteBtn {
   font-size: 2rem;
-  font-weight: 400;
-  color: var(--Light-Grayish-Blue);
+  font-weight: 200;
+  color: var(--Grayish-Blue);
   margin-right: 1rem;
 }
 
@@ -365,5 +348,24 @@ input:focus::placeholder {
   .custom_checkbox {
     width: 2.2rem;
     height: 2.2rem;
+  }
+
+  .buttons {
+    margin-top: -7rem;
+    background: 0;
+    z-index: 10;
+  }
+
+  .addTodo input {
+    font-size: 1.8rem;
+  }
+
+  .buttons button {
+    margin-right: 2rem;
+    font-weight: 700;
+  }
+
+  .btn {
+    z-index: 100;
   }
 }

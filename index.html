@@ -15,22 +15,31 @@
 
     <title>Frontend Mentor | Todo app</title>
   </head>
-  <body>
-    <div class="header">
-      <!-- <img src="./images/bg-desktop-light.jpg" alt="" /> -->
-    </div>
+  <body class="body">
+    <div class="header"></div>
 
     <main>
       <div class="content">
         <h2>TODO</h2>
 
         <!--Dark Mode Swich -->
-        <div class="theme-switch-wrapper">
-          <!-- <span id="toggle-icon"></span> -->
+        <!-- <div class="theme-switch-wrapper">
+          <span id="toggle-icon">
+            <span class="toggle-text">Light Mode</span>
+            <i class="fas fa-sun"></i>
+          </span>
           <label class="theme-switch">
             <input type="checkbox" />
+            <div class="slider round"></div>
+          </label>
+        </div> -->
+        <!--Dark Mode Swich -->
+        <div class="theme-switch-wrapper">
+          <span class="toggle-icon">
             <i class="fas fa-moon"></i>
-            <!-- <div class="slider round"></div> -->
+          </span>
+          <label class="theme-switch">
+            <input class="input_darkmode" type="checkbox" />
           </label>
         </div>
       </div>
@@ -52,7 +61,8 @@
         <div class="card">
           <div class="tasks">
             <!-- 1 -->
-            <div class="completed task">
+            <!-- use completed class in js to toggle the complted tasks -->
+            <div class="task">
               <input class="task-input" type="checkbox" id="task_1" />
               <label for="task_1"
                 ><span class="custom_checkbox"></span> Jog around the parc 3x</label
@@ -76,8 +86,8 @@
             <!-- 4 -->
             <div class="task">
               <input class="task-input" type="checkbox" id="task_4" />
-              <label for="task_4"><span class="custom_checkbox"></span>Pick up groceries</label
-              ><span class="deleteBtn"><i class="fas fa-times"></i></span>
+              <label for="task_4"><span class="custom_checkbox"></span>Pick up groceries</label>
+              <span class="deleteBtn"><i class="fas fa-times"></i></span>
             </div>
 
             <!-- 5 -->
@@ -118,5 +128,7 @@
         Coded by <a href="https://github.com/RedSquirrrel/todo" target="_blank">@RedSquirrrel</a>.
       </p>
     </footer>
+
+    <script src="./js/dark.js"></script>
   </body>
 </html>
