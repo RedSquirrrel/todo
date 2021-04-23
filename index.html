@@ -17,7 +17,7 @@
   </head>
   <body class="body">
     <div class="header"></div>
-
+    <!-- <div>Icons made by <a href="https://www.flaticon.com/authors/icongeek26" title="Icongeek26">Icongeek26</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->
     <main>
       <div class="content">
         <h2>TODO</h2>
@@ -37,6 +37,8 @@
         <div class="theme-switch-wrapper">
           <span class="toggle-icon">
             <i class="fas fa-moon"></i>
+
+            <!-- <img class="moon" src="./images/night-mode.svg" alt="" /> -->
           </span>
           <label class="theme-switch">
             <input class="input_darkmode" type="checkbox" />
@@ -45,11 +47,12 @@
       </div>
 
       <form class="addTodo">
-        <button class="btn addNewBtn" aria-label="button">
+        <button type="submit" class="btn addNewBtn" aria-label="button">
           <span class="custom_checkbox"></span>
         </button>
         <input
           class="addNew"
+          name="add"
           type="text"
           id="create"
           placeholder="Create a new todo..."
@@ -58,50 +61,52 @@
       </form>
 
       <div class="container">
+        <div class="alert">Write a task first</div>
         <div class="card">
-          <div class="tasks">
+          <ul class="tasks">
             <!-- 1 -->
             <!-- use completed class in js to toggle the complted tasks -->
-            <div class="task">
+            <li class="task">
               <input class="task-input" type="checkbox" id="task_1" />
               <label for="task_1"
                 ><span class="custom_checkbox"></span> Jog around the parc 3x</label
-              ><span class="deleteBtn"><i class="fas fa-times"></i></span>
-            </div>
+              ><span class="deleteBtn"><i class="fas fa-times delete"></i></span>
+            </li>
 
             <!-- 2 -->
-            <div class="task">
+            <li class="task">
               <input class="task-input" type="checkbox" id="task_2" />
               <label for="task_2"><span class="custom_checkbox"></span> 10 minutes meditation</label
-              ><span class="deleteBtn"><i class="fas fa-times"></i></span>
-            </div>
+              ><span class="deleteBtn"><i class="fas fa-times delete"></i></span>
+            </li>
 
             <!-- 3 -->
-            <div class="task">
+            <li class="task">
               <input class="task-input" type="checkbox" id="task_3" />
               <label for="task_3"><span class="custom_checkbox"></span>Read for 1 hour</label
-              ><span class="deleteBtn"><i class="fas fa-times"></i></span>
-            </div>
+              ><span class="deleteBtn"><i class="fas fa-times delete"></i></span>
+            </li>
 
             <!-- 4 -->
-            <div class="task">
+            <li class="task">
               <input class="task-input" type="checkbox" id="task_4" />
               <label for="task_4"><span class="custom_checkbox"></span>Pick up groceries</label>
-              <span class="deleteBtn"><i class="fas fa-times"></i></span>
-            </div>
+              <span class="deleteBtn"><i class="fas fa-times delete"></i></span>
+            </li>
 
             <!-- 5 -->
-            <div class="task">
+            <li class="task">
               <input class="task-input" type="checkbox" id="task_5" />
               <label for="task_5"
                 ><span class="custom_checkbox"></span>Complete Todo App on Frontend Mentor</label
-              ><span class="deleteBtn"><i class="fas fa-times"></i></span>
-            </div>
-            <div class="task items_left">
-              <!-- Add dynamic number -->
-              <p>5 items left</p>
-              <button class="btn clear">Clear Completed</button>
-            </div>
+              ><span class="deleteBtn"><i class="fas fa-times delete"></i></span>
+            </li>
+          </ul>
+
+          <div class="task items_left">
+            <!-- Add dynamic number -->
+            <p>5 items left</p>
+            <button class="btn clear">Clear Completed</button>
           </div>
         </div>
 
@@ -130,5 +135,6 @@
     </footer>
 
     <script src="./js/dark.js"></script>
+    <script src="./js/todo.js"></script>
   </body>
 </html>

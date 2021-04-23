@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+/* <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> */
 
 :root {
   /* Primary colors */
@@ -21,6 +22,9 @@
   --text-color: hsl(236, 9%, 61%);
   --ceckbox-border: hsl(0, 0%, 87%);
   --Grayish-Blue: hsl(236, 33%, 92%);
+  --alert: hsl(253, 68%, 79%);
+  --text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.4), 1px -1px 0 rgba(0, 0, 0, 0.4),
+    -1px 1px 0 rgba(0, 0, 0, 0.4), 1px 1px 0 rgba(0, 0, 0, 0.4);
 }
 
 [data-theme='dark'] {
@@ -30,6 +34,9 @@
   --text-color: hsl(0, 0%, 98%);
   --ceckbox-border: hsl(0, 0%, 24%);
   --Grayish-Blue: hsl(235, 19%, 35%);
+  --alert: hsl(230, 38%, 28%);
+  --text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.459), 1px -1px 0 rgba(255, 255, 255, 0.479),
+    -1px 1px 0 rgba(255, 255, 255, 0.473), 1px 1px 0 rgba(255, 255, 255, 0.466);
 }
 
 *,
@@ -106,6 +113,12 @@ main {
   position: absolute;
 }
 
+/* .moon {
+  height: 100px;
+  width: 100px;
+  background: white;
+} */
+
 .addTodo {
   min-width: 100%;
   width: 100%;
@@ -113,6 +126,7 @@ main {
   background: var(--input-and-card);
   border-radius: 5px;
   margin-bottom: 0.1rem;
+  box-shadow: -5px 0 20px 15px rgba(0, 0, 0, 0.2);
 }
 
 .addTodo input {
@@ -130,12 +144,24 @@ input:focus::placeholder {
   opacity: 0.2;
 }
 
+.alert {
+  color: var(--alert);
+  margin-top: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: clamp(1.5rem 3vw 2rem);
+  font-weight: 700;
+  text-shadow: var(--text-shadow);
+  display: none;
+}
+
 .card {
   background: var(--input-and-card);
   padding: 0.5rem 0.5rem 1rem 0.5rem;
   max-height: 800px;
   border-radius: 5px;
   margin-top: 2rem;
+  box-shadow: -5px 0 20px 15px rgba(0, 0, 0, 0.2);
 }
 
 .bottom {
@@ -205,6 +231,7 @@ input:focus::placeholder {
 }
 
 /* ============== tasks and custom checkbox */
+
 .task {
   cursor: pointer;
   display: flex;
@@ -298,7 +325,7 @@ input:focus::placeholder {
 
 /* ============== Footer ==================== */
 .attribution {
-  position: fixed;
+  /* position: fixed; */
   bottom: 3rem;
   font-size: 11px;
   display: flex;
