@@ -4,6 +4,8 @@ const addForm = document.querySelector('.addTodo');
 const ul = document.querySelector('.tasks');
 const alert = document.querySelector('.alert');
 const itemsLeft = document.querySelector('.items_left');
+const checkbox = document.querySelectorAll('.task-input');
+console.log(checkbox);
 
 /* 
 - create todo
@@ -13,12 +15,16 @@ const itemsLeft = document.querySelector('.items_left');
 const generateTemplate = todo => {
   let id = ul.children.length + 1;
   const html = `
-      <li class="task">
-         <input class="task-input" type="checkbox" id="task_${id}" />
-         <label for="task_${id}">
-         <span class="custom_checkbox"></span> ${todo}</label>
-         <span class="deleteBtn"><i class="fas fa-times delete"></i></span>
-     </li>    
+          <li class="task">
+             <input class="task-input" type="checkbox" id="task_${id}" />
+             <label for="task_${id}">
+               <span class="custom_checkbox"></span>
+               ${todo}
+             </label>
+            <span class="deleteBtn">
+              <img class="delete" src="./images/icon-cross.svg" alt="" />
+            </span>
+         </li>   
   `;
 
   ul.innerHTML += html;
@@ -32,7 +38,7 @@ addForm.addEventListener('submit', (e, selectedTask) => {
   // check for todo and remove todo
   if (todo.length) {
     generateTemplate(todo);
-
+    // itemLeft(todo);
     addForm.reset();
     alert.style.display = 'none';
   } else {
@@ -47,5 +53,6 @@ addForm.addEventListener('submit', (e, selectedTask) => {
 ul.addEventListener('click', e => {
   if (e.target.classList.contains('delete')) {
     e.target.parentElement.parentElement.remove();
+    console.log(e.target);
   }
 });

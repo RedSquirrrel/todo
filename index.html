@@ -21,24 +21,10 @@
     <main>
       <div class="content">
         <h2>TODO</h2>
-
-        <!--Dark Mode Swich -->
-        <!-- <div class="theme-switch-wrapper">
-          <span id="toggle-icon">
-            <span class="toggle-text">Light Mode</span>
-            <i class="fas fa-sun"></i>
-          </span>
-          <label class="theme-switch">
-            <input type="checkbox" />
-            <div class="slider round"></div>
-          </label>
-        </div> -->
         <!--Dark Mode Swich -->
         <div class="theme-switch-wrapper">
           <span class="toggle-icon">
-            <i class="fas fa-moon"></i>
-
-            <!-- <img class="moon" src="./images/night-mode.svg" alt="" /> -->
+            <img class="icon" src="./images/icon-light.svg" alt="" />
           </span>
           <label class="theme-switch">
             <input class="input_darkmode" type="checkbox" />
@@ -65,47 +51,70 @@
         <div class="card">
           <ul class="tasks">
             <!-- 1 -->
-            <!-- use completed class in js to toggle the complted tasks -->
+            <!-- use completed class in js to toggle the completed tasks -->
             <li class="task">
               <input class="task-input" type="checkbox" id="task_1" />
-              <label for="task_1"
-                ><span class="custom_checkbox"></span> Jog around the parc 3x</label
-              ><span class="deleteBtn"><i class="fas fa-times delete"></i></span>
+              <label for="task_1">
+                <span class="custom_checkbox"></span>
+                Jog around the parc 3x
+              </label>
+              <span class="deleteBtn">
+                <img class="delete" src="./images/icon-cross.svg" alt="" />
+              </span>
             </li>
 
             <!-- 2 -->
             <li class="task">
               <input class="task-input" type="checkbox" id="task_2" />
-              <label for="task_2"><span class="custom_checkbox"></span> 10 minutes meditation</label
-              ><span class="deleteBtn"><i class="fas fa-times delete"></i></span>
+              <label for="task_2">
+                <span class="custom_checkbox"></span>
+                10 minutes meditation
+              </label>
+              <span class="deleteBtn">
+                <img class="delete" src="./images/icon-cross.svg" alt="" />
+              </span>
             </li>
 
             <!-- 3 -->
             <li class="task">
               <input class="task-input" type="checkbox" id="task_3" />
-              <label for="task_3"><span class="custom_checkbox"></span>Read for 1 hour</label
-              ><span class="deleteBtn"><i class="fas fa-times delete"></i></span>
+              <label for="task_3">
+                <span class="custom_checkbox"></span>
+                Read for 1 hour
+              </label>
+              <span class="deleteBtn">
+                <img class="delete" src="./images/icon-cross.svg" alt="" />
+              </span>
             </li>
 
             <!-- 4 -->
             <li class="task">
               <input class="task-input" type="checkbox" id="task_4" />
-              <label for="task_4"><span class="custom_checkbox"></span>Pick up groceries</label>
-              <span class="deleteBtn"><i class="fas fa-times delete"></i></span>
+              <label for="task_4">
+                <span class="custom_checkbox"></span>
+                Pick up groceries
+              </label>
+              <span class="deleteBtn">
+                <img class="delete" src="./images/icon-cross.svg" alt="" />
+              </span>
             </li>
 
             <!-- 5 -->
             <li class="task">
               <input class="task-input" type="checkbox" id="task_5" />
-              <label for="task_5"
-                ><span class="custom_checkbox"></span>Complete Todo App on Frontend Mentor</label
-              ><span class="deleteBtn"><i class="fas fa-times delete"></i></span>
+              <label for="task_5">
+                <span class="custom_checkbox"></span>
+                Complete Todo App on Frontend Mentor
+              </label>
+              <span class="deleteBtn">
+                <img class="delete" src="./images/icon-cross.svg" alt="" />
+              </span>
             </li>
           </ul>
 
           <div class="task items_left">
             <!-- Add dynamic number -->
-            <p>5 items left</p>
+            <p class="p">5 items left</p>
             <button class="btn clear">Clear Completed</button>
           </div>
         </div>
@@ -123,16 +132,15 @@
           </div>
         </div>
       </div>
+      <footer class="attribution">
+        <p class="drag_text">Drag and drop to reorder list</p>
+        <p>
+          Challenge by
+          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+          Coded by <a href="https://github.com/RedSquirrrel/todo" target="_blank">@RedSquirrrel</a>.
+        </p>
+      </footer>
     </main>
-
-    <footer class="attribution">
-      <p class="drag_text">Drag and drop to reorder list</p>
-      <p>
-        Challenge by
-        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-        Coded by <a href="https://github.com/RedSquirrrel/todo" target="_blank">@RedSquirrrel</a>.
-      </p>
-    </footer>
 
     <script src="./js/dark.js"></script>
     <script src="./js/todo.js"></script>
