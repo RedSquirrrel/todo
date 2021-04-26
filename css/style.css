@@ -296,7 +296,7 @@ li::after {
 /* background: var(--Check-Background); */
 
 [type='checkbox']:checked + label .custom_checkbox {
-  background-image: url('/images/icon-check.svg'), var(--Check-Background);
+  background-image: url('../images/icon-check.svg'), var(--Check-Background);
   background-repeat: no-repeat;
   background-position: center center;
   color: var(--Very-Light-Gray);
