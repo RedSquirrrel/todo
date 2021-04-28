@@ -1,21 +1,19 @@
 Your users should be able to:
 
-# View the optimal layout for the app depending on their device's screen size - DONE
+## View the optimal layout for the app depending on their device's screen size - DONE
 
-See hover states for all interactive elements on the page
+## Add new todos to the list - DONE
 
-# Add new todos to the list - DONE
+## Delete todos from the list - DONE
 
-Mark todos as complete + add "text-decoration: line-through"
+## Toggle light and dark mode - DONE
 
-# Delete todos from the list - DONE
+## Bonus: Drag and drop to reorder items on the list - DONE
 
-Filter by all/active/complete todos
-Clear all completed todos
+See hover states for all interactive elements on the page;
 
-# Toggle light and dark mode - DONE
+Mark todos as complete + add "text-decoration: line-through";
 
-Bonus: Drag and drop to reorder items on the list
+Filter by all/active/complete todos;
 
-- for commit
-  changed icons adding svgs, changed dark mode to be default mode
+Clear all completed todos;

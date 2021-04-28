@@ -59,6 +59,28 @@ body {
   font-size: 1.2rem;
   min-height: 100vh;
   margin: 0;
+  user-select: none;
+}
+
+.blue-background-class {
+  background: var(--Bright-Blue);
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.4);
+  margin-right: 5px;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: var(--input-and-card);
 }
 
 .header {
@@ -223,8 +245,8 @@ input:focus::placeholder {
   align-items: center;
   width: 50px;
   height: 100%;
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
+  /* border-top-left-radius: 8px; */
+  /* border-bottom-left-radius: 8px; */
   background: var(--input-and-card);
   padding: 0.5rem;
   margin-left: 0.5rem;
@@ -232,6 +254,10 @@ input:focus::placeholder {
 
 .addNewBtn span:hover {
   border: 1px solid var(--Very-Dark-Blue);
+}
+
+.plusSign {
+  font-size: 1.99rem;
 }
 
 .active {
@@ -325,7 +351,7 @@ li::after {
   color: var(--text-color);
 }
 
-.completed label {
+.completedTask {
   text-decoration: line-through;
   color: hsl(0, 1%, 76%);
   opacity: 0.3;
@@ -372,6 +398,10 @@ li::after {
 
   .content {
     font-size: 3.6rem;
+  }
+
+  .plusSign {
+    font-size: 2.1rem;
   }
 
   /*
