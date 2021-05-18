@@ -328,6 +328,10 @@ li::after {
   color: var(--Very-Light-Gray);
 }
 
+[type='checkbox']:checked + label {
+  text-decoration: line-through;
+}
+
 /*
 !not sure yet
  [type='checkbox']:checked + label .custom_checkbox::before {
@@ -351,11 +355,11 @@ li::after {
   color: var(--text-color);
 }
 
-.completedTask {
+/* .completedTask {
   text-decoration: line-through;
   color: hsl(0, 1%, 76%);
   opacity: 0.3;
-}
+} */
 
 .delete {
   width: 1.1rem;

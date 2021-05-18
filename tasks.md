@@ -10,10 +10,12 @@ Your users should be able to:
 
 ## Bonus: Drag and drop to reorder items on the list - DONE
 
+## Mark todos as complete + add "text-decoration: line-through"; - DONE
+
 See hover states for all interactive elements on the page;
 
-Mark todos as complete + add "text-decoration: line-through";
+Filter by all/active/complete todos; ...
 
-Filter by all/active/complete todos;
+Clear all completed todos; ...
 
-Clear all completed todos;
+Persist the localstorage if todo has deleted and update the Counter ...
