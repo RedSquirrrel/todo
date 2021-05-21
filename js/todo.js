@@ -5,9 +5,10 @@ const listDisplayContainer = document.querySelector('.tasks');
 const listCountElement = document.querySelector('.p');
 const taskTemplate = document.querySelector('#task-template');
 const alert = document.querySelector('.alert');
-const clearCompletedTaskBtn = document.querySelector('.completed');
+const completedTaskBtn = document.querySelector('.completed');
 const activeTaskBtn = document.querySelector('.activeBtn');
 const allTaskBtn = document.querySelector('.all');
+const clearCompletedTaskBtn = document.querySelector('.clear');
 
 new Sortable(listContainer, {
   animation: 150,
@@ -46,8 +47,6 @@ let todos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST)) || [
 
 const createTask = name => {
   let id = todos.length + 1;
-  console.log(id);
-  // return { id: new Date().getTime().toString(), name: name, completed: false };
   return { id: id.toString(), name: name, completed: false };
 };
 
@@ -79,34 +78,41 @@ const isCompleted = e => {
 };
 
 const deleteTodo = e => {
-  if (e.target.classList.contains('delete')) {
-    e.target.parentElement.parentElement.remove();
-    console.log(e.target);
+  if (e.target.tagName.toLowerCase() === 'img') {
+    const deleteTask = todos.filter(task => task.id !== e.target.id);
+    todos = deleteTask;
+    saveAndRender();
   }
   renderTaskCount();
   saveToLocalstorage();
 };
 
-clearCompletedTaskBtn.addEventListener('click', e => {
-  todos = todos.filter(todo => todo.completed);
-  saveToLocalstorage();
-  saveAndRender();
-});
+// completedTaskBtn.addEventListener('click', e => {
+//   todos = todos.filter(todo => todo.completed);
+//   saveToLocalstorage();
+//   saveAndRender();
+// });
 
-activeTaskBtn.addEventListener('click', e => {
-  todos = todos.filter(todo => todo.completed);
-  saveToLocalstorage();
-  saveAndRender();
-});
+// activeTaskBtn.addEventListener('click', e => {
+//   todos = todos.filter(todo => todo.completed);
+//   saveToLocalstorage();
+//   saveAndRender();
+// });
 
-allTaskBtn.addEventListener('click', e => {
-  saveAndRender();
-});
+// allTaskBtn.addEventListener('click', e => {
+//   saveAndRender();
+// });
 
 const renderTaskCount = () => {
   const incompleteTaskCount = todos.filter(task => !task.completed).length;
   const taskString = incompleteTaskCount === 1 || incompleteTaskCount === 0 ? 'item' : 'items';
   listCountElement.innerHTML = `${incompleteTaskCount} ${taskString} left`;
+};
+
+const clearCompletedTodos = () => {
+  const clearCompleted = todos.filter(task => !task.completed);
+  todos = clearCompleted;
+  saveAndRender();
 };
 
 const renderTasks = selectedList => {
@@ -119,6 +125,8 @@ const renderTasks = selectedList => {
     const label = taskElement.querySelector('label');
     label.htmlFor = todo.id;
     label.append(todo.name);
+    const deleteBtn = taskElement.querySelector('img');
+    deleteBtn.id = todo.id;
     listContainer.appendChild(taskElement);
   });
   renderTaskCount(selectedList);
@@ -146,6 +154,7 @@ const render = () => {
   saveToLocalstorage();
 };
 
+clearCompletedTaskBtn.addEventListener('click', clearCompletedTodos);
 newTodoForm.addEventListener('submit', submitTodo);
 listContainer.addEventListener('click', isCompleted);
 listContainer.addEventListener('click', deleteTodo);
