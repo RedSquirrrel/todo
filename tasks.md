@@ -12,10 +12,10 @@ Your users should be able to:
 
 ## Mark todos as complete + add "text-decoration: line-through"; - DONE
 
-See hover states for all interactive elements on the page;
+## Clear all completed todos; - DONE
+
+## Persist the localstorage if todo has deleted and update the Counter - DONE
+
+## See hover states for all interactive elements on the page; - DONE
 
 Filter by all/active/complete todos; ...
-
-Clear all completed todos; ...
-
-Persist the localstorage if todo has deleted and update the Counter ...
