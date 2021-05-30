@@ -441,7 +441,6 @@ li::after {
   .buttons {
     margin-top: -7rem;
     background: 0;
-    z-index: 10;
   }
 
   .addTodo input {
@@ -455,5 +454,10 @@ li::after {
 
   .btn {
     z-index: 100;
+  }
+
+  .clear {
+    z-index: 1000;
+    padding: 0.5rem;
   }
 }

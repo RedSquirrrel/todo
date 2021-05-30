@@ -1,15 +1,16 @@
-const listContainer = document.querySelector('.tasks');
-const newTodoForm = document.querySelector('.addTodo');
-const newTodoInput = document.querySelector('.addNew');
-// const listDisplayContainer = document.querySelector('.tasks');
-const listCountElement = document.querySelector('.p');
-const taskTemplate = document.querySelector('#task-template');
-const alert = document.querySelector('.alert');
-const showCompletedTodos = document.querySelector('.completed');
-const showActiveTodos = document.querySelector('.activeBtn');
-const allTaskBtn = document.querySelector('.all');
-const clearCompletedTaskBtn = document.querySelector('.clear');
+const listContainer = document.querySelector('.tasks'); // ul
+const newTodoForm = document.querySelector('.addTodo'); // form
+const newTodoInput = document.querySelector('.addNew'); // input
+const listCountElement = document.querySelector('.counter'); //counter
+const taskTemplate = document.querySelector('#task-template'); // html template
+const alert = document.querySelector('.alert'); // alert
+const clearCompletedTaskBtn = document.querySelector('.clear'); // clear completed
+
+// filtering
 const filterOptions = document.querySelector('.filter-todos');
+const allTaskBtn = document.querySelector('.all');
+const showActiveTodos = document.querySelector('.activeBtn');
+const showCompletedTodos = document.querySelector('.completed');
 
 new Sortable(listContainer, {
   animation: 150,
@@ -81,6 +82,7 @@ const isCompleted = e => {
     const selectedTask = todos.find(task => task.id === e.target.id);
     selectedTask.completed = e.target.checked;
   }
+
   renderTaskCount();
   saveToLocalstorage();
 };
@@ -98,61 +100,59 @@ const deleteTodo = e => {
 
 const filterTodos = e => {
   listContainer.innerHTML = '';
-  todos.filter((todo, id) => {
-    // console.log(todo);
-    // console.log(id + 1);
-    // console.log(e.target);
-    if (e.target.classList.contains('all')) {
+
+  todos.map((todo, id) => {
+    // let index = id + 1;
+    if (e.target === allTaskBtn) {
+      listContainer.innerHTML = '';
       showActiveTodos.classList.remove('active');
       allTaskBtn.classList.add('active');
       showCompletedTodos.classList.remove('active');
       console.log('All');
       saveAndRender();
+      focusInput();
     }
 
-    if (e.target.classList.contains('activeBtn')) {
-      console.log('Active');
+    if (e.target === showActiveTodos) {
       showActiveTodos.classList.add('active');
       allTaskBtn.classList.remove('active');
       showCompletedTodos.classList.remove('active');
-      if (todo.completed === false) {
+      if (!todo.completed) {
+        console.log('Active', todo);
+        // todo.filter(tod => {
         listContainer.innerHTML += `
-        <li class="task">
-          <input class="task-input" type="checkbox" />
-           <label>
-             <span class="custom_checkbox"></span>
-              ${todo.name}
-             </label>
-          <span class="deleteBtn">
-            <img class="delete" src="./images/icon-cross.svg" alt="" />
-          </span>
-       </li>`;
-        console.log(todo.name);
+          <li class="task">
+            <input class="task-input" type="checkbox" />
+             <label>
+               <span class="custom_checkbox"></span>
+                ${todo.name}
+               </label>
+            <span class="deleteBtn">
+              <img class="delete" src="./images/icon-cross.svg" alt="" />
+            </span>
+         </li>`;
       }
     }
 
-    if (e.target.classList.contains('completed')) {
+    if (e.target === showCompletedTodos) {
       showActiveTodos.classList.remove('active');
       allTaskBtn.classList.remove('active');
       showCompletedTodos.classList.add('active');
-      console.log('Completed');
-      if (todo.completed === true) {
+      if (todo.completed) {
         listContainer.innerHTML += `
         <li class="task">
         <input class="task-input" type="checkbox" />
-         <label>
-           <span class="custom_checkbox"></span>
-            ${todo.name}
-           </label>
+        <label>
+        <span class="custom_checkbox"></span>
+        ${todo.name}
+        </label>
         <span class="deleteBtn">
-          <img class="delete" src="./images/icon-cross.svg" alt="" />
+        <img class="delete" src="./images/icon-cross.svg" alt="" />
         </span>
-     </li>`;
-        console.log(todo);
+        </li>`;
       }
     }
   });
-  renderTaskCount();
 };
 
 const renderTaskCount = () => {
@@ -162,6 +162,7 @@ const renderTaskCount = () => {
 };
 
 const clearCompletedTodos = () => {
+  console.log('clearCompleted');
   const clearCompleted = todos.filter(task => !task.completed);
   if (clearCompleted.length === todos.length) {
     alert.style.display = 'block';
@@ -188,6 +189,7 @@ const clearCompletedTodos = () => {
   }
   todos = clearCompleted;
   saveAndRender();
+  focusInput();
 };
 
 const renderTasks = selectedList => {
@@ -230,10 +232,10 @@ const render = () => {
   focusInput();
 };
 
-clearCompletedTaskBtn.addEventListener('click', clearCompletedTodos);
-newTodoForm.addEventListener('submit', submitTodo);
 listContainer.addEventListener('click', isCompleted);
+newTodoForm.addEventListener('submit', submitTodo);
 listContainer.addEventListener('click', deleteTodo);
 filterOptions.addEventListener('click', filterTodos);
+clearCompletedTaskBtn.addEventListener('click', clearCompletedTodos);
 
 render();
