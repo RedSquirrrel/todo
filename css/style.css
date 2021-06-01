@@ -19,6 +19,7 @@
   --background-image: url('../images/bg-desktop-dark.jpg');
   --input-and-card: hsl(235, 24%, 19%);
   --text-color: hsl(0, 0%, 98%);
+  --btn-hover-color: hsl(0, 0%, 98%);
   --ceckbox-border: hsl(0, 0%, 24%);
   --Grayish-Blue: hsl(235, 19%, 35%);
   --alert: hsl(230, 38%, 28%);
@@ -33,6 +34,7 @@
   --input-and-card: hsl(0, 0%, 98%);
   --Light-Grayish-Blue: hsl(233, 11%, 84%);
   --text-color: hsl(236, 9%, 61%);
+  --btn-hover-color: hsl(236, 9%, 1%);
   --ceckbox-border: hsl(0, 0%, 87%);
   --Grayish-Blue: hsl(236, 33%, 92%);
   --alert: hsl(253, 68%, 79%);
@@ -185,7 +187,7 @@ input:focus::placeholder {
 .card {
   background: var(--input-and-card);
   padding: 0.5rem 0.5rem 1rem 0.5rem;
-  max-height: 800px;
+  min-height: fit-content;
   border-radius: 5px;
   margin-top: 2rem;
   box-shadow: -5px 0 20px 15px rgba(0, 0, 0, 0.2);
@@ -245,8 +247,6 @@ input:focus::placeholder {
   align-items: center;
   width: 50px;
   height: 100%;
-  /* border-top-left-radius: 8px; */
-  /* border-bottom-left-radius: 8px; */
   background: var(--input-and-card);
   padding: 0.5rem;
   margin-left: 0.5rem;
@@ -286,8 +286,10 @@ li::after {
   opacity: var(--opacity);
 }
 
-.task:hover {
+.tasks li:hover,
+.tasks li:hover:last-child {
   opacity: 0.7;
+  cursor: pointer;
 }
 
 .task:hover:last-child {
@@ -312,15 +314,6 @@ li::after {
   transition: transform 300ms ease-in-out;
 }
 
-/*
-!not sure yet
- .task:hover .custom_checkbox,
-[type='checkbox']:focus + label .custom_checkbox {
-  transform: scale(1.1);
-  color: var(--Dark-Grayish-Blue);
-} */
-/* background: var(--Check-Background); */
-
 [type='checkbox']:checked + label .custom_checkbox {
   background-image: url('../images/icon-check.svg'), var(--Check-Background);
   background-repeat: no-repeat;
@@ -330,17 +323,8 @@ li::after {
 
 [type='checkbox']:checked + label {
   text-decoration: line-through;
+  opacity: 0.5;
 }
-
-/*
-!not sure yet
- [type='checkbox']:checked + label .custom_checkbox::before {
-  content: '';
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  transition: all 0.1s;
-} */
 
 .task label {
   display: flex;
@@ -355,12 +339,6 @@ li::after {
   color: var(--text-color);
 }
 
-/* .completedTask {
-  text-decoration: line-through;
-  color: hsl(0, 1%, 76%);
-  opacity: 0.3;
-} */
-
 .delete {
   width: 1.1rem;
   height: 1.1rem;
@@ -369,16 +347,21 @@ li::after {
   cursor: pointer;
 }
 
+.all:hover,
+.activeBtn:hover,
+.completed:hover,
+.clear:hover {
+  color: var(--btn-hover-color);
+}
+
 /* ============== Footer ==================== */
 .attribution {
-  /* position: fixed; */
   margin-top: 5rem;
   font-size: 1.3rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  /* width: 100%; */
   color: var(--Dark-Grayish-Blue);
 }
 .drag_text {
@@ -388,6 +371,10 @@ li::after {
   font-size: 1rem;
   color: var(--Bright-Blue);
   text-decoration: none;
+}
+
+.attribution .author {
+  text-align: center;
 }
 
 .attribution a:hover {
@@ -408,19 +395,8 @@ li::after {
     font-size: 2.1rem;
   }
 
-  /*
-  !not sure yet
-   .attribution {
-    bottom: 5rem;
-  } 
-  */
   .attribution a {
     font-size: 1.5rem;
-  }
-
-  .task:hover:last-child {
-    opacity: 0.7;
-    cursor: pointer;
   }
 
   .drag_text {
