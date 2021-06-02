@@ -18,4 +18,4 @@ Your users should be able to:
 
 ## See hover states for all interactive elements on the page; - DONE
 
-Filter by all/active/complete todos; ...
+## Filter by all/active/complete todos - DONE

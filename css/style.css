@@ -92,7 +92,7 @@ body {
 }
 
 main {
-  max-width: 600px;
+  max-width: 540px;
   width: 90%;
   margin: 0 auto;
   display: grid;
@@ -375,6 +375,7 @@ li::after {
 
 .attribution .author {
   text-align: center;
+  padding-bottom: 3rem;
 }
 
 .attribution a:hover {
@@ -387,16 +388,41 @@ li::after {
     font-size: 1.8rem;
   }
 
-  .content {
-    font-size: 3.6rem;
+  .header {
+    min-height: 31vh;
+  }
+
+  main {
+    width: 100%;
+    height: max-content;
+    bottom: 22rem;
+    padding: 0.3rem;
+    height: 3rem;
+  }
+
+  .content_title {
+    font-size: 3.9rem !important;
+    letter-spacing: 12px !important;
+  }
+
+  .theme-switch {
+    height: 3.3rem;
+    width: 2.8rem;
+  }
+
+  .icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .addTodo input {
+    margin-top: 2.05rem;
+    height: 5rem;
+    font-family: 'Josefin Sans', sans-serif;
   }
 
   .plusSign {
     font-size: 2.1rem;
-  }
-
-  .attribution a {
-    font-size: 1.5rem;
   }
 
   .drag_text {
@@ -435,5 +461,18 @@ li::after {
   .clear {
     z-index: 1000;
     padding: 0.5rem;
+  }
+
+  .attribution a {
+    font-size: 1.5rem;
+  }
+
+  .drag_text {
+    margin-bottom: 1.8rem;
+    font-size: 1.4rem;
+  }
+
+  .attribution .author {
+    padding-bottom: 5rem;
   }
 }

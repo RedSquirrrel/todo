@@ -22,26 +22,31 @@ const LOCAL_STORAGE_LIST = 'task.todos';
 let todos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST)) || [
   {
     id: '1',
-    name: 'Jog around the park 3x',
+    name: 'Complete online JavaScript course',
     completed: false,
   },
   {
     id: '2',
-    name: '10 minutes meditation',
+    name: 'Jog around the park 3x',
     completed: false,
   },
   {
     id: '3',
-    name: 'Read for 1 hour',
+    name: '10 minutes meditation',
     completed: false,
   },
   {
     id: '4',
-    name: 'Pick up groceries',
+    name: 'Read for 1 hour',
     completed: false,
   },
   {
     id: '5',
+    name: 'Pick up groceries',
+    completed: false,
+  },
+  {
+    id: '6',
     name: 'Complete Todo App on Frontend Mentor',
     completed: false,
   },
@@ -99,10 +104,15 @@ const deleteTodo = e => {
 };
 
 const filterTodos = e => {
-  listContainer.innerHTML = '';
+  if (
+    e.target.classList.contains('all') ||
+    e.target.classList.contains('activeBtn') ||
+    e.target.classList.contains('completed')
+  ) {
+    listContainer.innerHTML = '';
+  }
 
-  todos.map((todo, id) => {
-    // let index = id + 1;
+  todos.map(todo => {
     if (e.target === allTaskBtn) {
       listContainer.innerHTML = '';
       showActiveTodos.classList.remove('active');
@@ -118,19 +128,16 @@ const filterTodos = e => {
       allTaskBtn.classList.remove('active');
       showCompletedTodos.classList.remove('active');
       if (!todo.completed) {
-        console.log('Active', todo);
-        // todo.filter(tod => {
-        listContainer.innerHTML += `
-          <li class="task">
-            <input class="task-input" type="checkbox" />
-             <label>
-               <span class="custom_checkbox"></span>
-                ${todo.name}
-               </label>
-            <span class="deleteBtn">
-              <img class="delete" src="./images/icon-cross.svg" alt="" />
-            </span>
-         </li>`;
+        const taskElement = document.importNode(taskTemplate.content, true);
+        const checkbox = taskElement.querySelector('input');
+        checkbox.id = todo.id;
+        checkbox.checked = todo.completed;
+        const label = taskElement.querySelector('label');
+        label.htmlFor = todo.id;
+        label.append(todo.name);
+        const deleteBtn = taskElement.querySelector('img');
+        deleteBtn.id = todo.id;
+        listContainer.appendChild(taskElement);
       }
     }
 
@@ -139,17 +146,16 @@ const filterTodos = e => {
       allTaskBtn.classList.remove('active');
       showCompletedTodos.classList.add('active');
       if (todo.completed) {
-        listContainer.innerHTML += `
-        <li class="task">
-        <input class="task-input" type="checkbox" />
-        <label>
-        <span class="custom_checkbox"></span>
-        ${todo.name}
-        </label>
-        <span class="deleteBtn">
-        <img class="delete" src="./images/icon-cross.svg" alt="" />
-        </span>
-        </li>`;
+        const taskElement = document.importNode(taskTemplate.content, true);
+        const checkbox = taskElement.querySelector('input');
+        checkbox.id = todo.id;
+        checkbox.checked = todo.completed;
+        const label = taskElement.querySelector('label');
+        label.htmlFor = todo.id;
+        label.append(todo.name);
+        const deleteBtn = taskElement.querySelector('img');
+        deleteBtn.id = todo.id;
+        listContainer.appendChild(taskElement);
       }
     }
   });
@@ -162,8 +168,9 @@ const renderTaskCount = () => {
 };
 
 const clearCompletedTodos = () => {
-  console.log('clearCompleted');
   const clearCompleted = todos.filter(task => !task.completed);
+  allTaskBtn.classList.add('active');
+  showCompletedTodos.classList.remove('active');
   if (clearCompleted.length === todos.length) {
     alert.style.display = 'block';
     alert.textContent = 'Tick one or more items first';
@@ -189,7 +196,6 @@ const clearCompletedTodos = () => {
   }
   todos = clearCompleted;
   saveAndRender();
-  focusInput();
 };
 
 const renderTasks = selectedList => {
