@@ -418,7 +418,12 @@ li::after {
   .addTodo input {
     margin-top: 2.05rem;
     height: 5rem;
+    padding-bottom: 2.5rem !important;
     font-family: 'Josefin Sans', sans-serif;
+  }
+
+  input::placeholder {
+    position: absolute;
   }
 
   .plusSign {
